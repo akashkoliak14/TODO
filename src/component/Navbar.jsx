@@ -20,10 +20,10 @@ const Navbar = () => {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item">
-          <Link class="nav-link" to="/">SCHEDULE</Link>
+          <Link class="nav-link" to="/"> CATEGORY</Link>
         </li>
       <li class="nav-item">
-          <Link class="nav-link" to="/Form">CATEGORY</Link>
+          <Link class="nav-link" to="/Form">SCHEDULE</Link>
         </li>
       </ul>
  
