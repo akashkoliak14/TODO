@@ -52,7 +52,7 @@ const deletItems = (id) => {
         <div>
         <br></br>
          
-        <input type="text" placeholder='Add category' onChange={itemEvent} />
+        <input type="text" placeholder='Add Schedule Task' onChange={itemEvent} />
         
        <select onChange={iEvent}
        type="select" >

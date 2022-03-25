@@ -1,26 +1,81 @@
-import React from 'react'
 
-const Schedule = (props) => {
-  return (
-    <div>
-       
-       <div >
-     
-  <div className='main_div'>
+import React,{useState} from 'react'
+import Mylist from './Mylist';
+
+const Schedule = () => {
+  const[inputlist,setInputList]= useState("");
+  const[select,setSelect]= useState("");
+  const[Items,setItems]= useState([]);
+ 
+  const itemEvent = (event) =>{ 
+    setInputList(event.target.value)
+   
+   
+  }; 
+
+ 
+  const iEvent = ( e) =>{ 
+    
+    setSelect(e.target.value)
+   
+  }; 
+
   
+ const listOfItems = () => {
+setItems((oldItems) =>{
+  return[...oldItems,[[inputlist]+  "   - "  +[select]]];
+});
+setInputList("");
+setSelect("");
+};
+const deletItems = (id) => {
+  console.log("deleted");
+   
+  setItems((oldItems) => {
+    return oldItems.filter((arrElem,index)=>{ 
+      return index !== id;
+    });
+ 
+  });
+} ;
+
+  return (
+    <div >
+    
+  <div className='main_div'>
         <div className='madhala_card'>
         <h1>
-          TODAYS CATEGORY
+          TODAYS SCHEDULE
         </h1>
         
        
         <div>
-       
-        
+        <br></br>
+         
+        <input type="text" placeholder='Add Schedule Task' onChange={itemEvent} />
+         
+         
+
+            <button onClick={listOfItems}>+</button> 
+            <div>
+        <ol>
+       { Items.map( (itemval,index) => {  
+
+ return <Mylist  key={index}
+ id = {index}
 
 
+ text = {itemval} 
 
-       
+
+ onSelect = {deletItems}
+  />;
+}
+
+ )}
+
+
+        </ol>
        
      </div> 
     
@@ -28,8 +83,7 @@ const Schedule = (props) => {
 
         </div>
   </div>
-    </div> 
-    
+    </div>
   )
 }
 
